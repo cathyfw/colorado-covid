@@ -31,7 +31,7 @@ def index():
     return render_template("index.html", title="Ares is a good cat", user=user, posts=posts)
 
 
-@app.route('/colorado-graph')
+@app.route('/colorado-log-graph')
 def get_co_graph():
     fig = graphs.make_figure()
     img = BytesIO()

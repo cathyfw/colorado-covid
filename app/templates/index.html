@@ -1,8 +1,48 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <h1>Hello, {{ user.username }}!</h1>
-        {% for post in posts %}
-        <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-        {% endfor %}
+    <h1>Colorado Coronavirus statistics (updated daily)</h1>
+    <p> by Cathy Walsh </p>
+    <p> technical assistance by Trevor Sullivan </p>
+    <br>
+    <p>
+    "Exponential growth" is a word that gets you hear a lot, but which is very difficult to understand
+    intuitively. Unfortunately, in this time of crisis, understanding exponential growth is a matter of life and death
+    for hundreds of thousands, possibly millions people. This site aims to increase understanding and track progress
+    for the State of Colorado
+    </p>
+    <br>
+    <p>
+    Mathematically, exponential growth is simple: it means growth that increases according to some base raised to the
+    power of an independent variable. While that may seem simple on its face, the speed to which it increases can still
+    be surprising. If the base is 10, that means the exponential sequence is 0, 1, 10, 100, 1000, 10000, ..., after just
+    10 iterations the value is over 10 billion, more than the number of people on earth. When you graph an exponential
+    relationship on a regular graph, it is nearly impossible to distinguish from a vertical line without narrowing to a
+    very small horizontal interval, which can itself be misleading.
+    </p>
+    <br>
+    <p>
+    For viruses, there is additional confusion when it comes to exponential growth. The instinct that is drilled into
+    most people from their high school science classes is to always graph over time. Thing about viruses: they aren't
+    known for sticking to schedules. The speed of the spread of a virus is not determined by the length of time since
+    the last number of cases, it is determined rather by the number of active cases.
+    </p>
+    <blockquote class="blockquote text-center">
+        <p class="mb-0">The virus doesn't spread faster because more time has passed, it spreads faster because more
+            infected people have been
+            spreading it around the community
+        </p>
+{#        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>#}
+    </blockquote>
+
+    <p>
+    The key to understanding exponential growth of a pandemic is to consider not the amount of time gone by, but the
+    number of people impacted. The only way to reliably judge the efficacy of emergency measures is to study not how many
+    new cases there are each day, but by studying how many new cases there are per existing case.
+    </p>
+
+    <img src="/colorado-log-graph" alt="log_chart" height="420" width="420">
+
+
+    <h1>TODO: cite sources</h1>
 {% endblock %}
