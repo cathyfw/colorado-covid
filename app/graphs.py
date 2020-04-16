@@ -12,7 +12,7 @@ def today_data(today_file):
     return today_df
 
 
-def make_figure(data_df):
+def make_figure():
     covid_df = today_data("/Users/catherinewalsh/Downloads/covid19_case_summary_2020-04-15.csv")
 
     # State cumulative and new CASES by day -- ONSET DATE
