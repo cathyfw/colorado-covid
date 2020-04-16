@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM alpine
 
 RUN adduser -D flaskuser
 
@@ -9,7 +9,9 @@ COPY requirements.txt requirements.txt
 # trying to fix problem with pandas and matplotlib  https://stackoverflow.com/questions/54890328/installing-pandas-in-docker-alpine
 RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 RUN apk update
-RUN apk add make automake gcc g++ subversion python3-dev
+RUN apk add build-base libzmq musl-dev python3 python3-dev zeromq-dev
+
+RUN apk add make automake gcc g++ subversion python3-dev libzmq
 RUN apk add --update --no-cache py3-numpy py3-pandas@testing
 
 #RUN python -m venv venv
@@ -17,9 +19,8 @@ RUN apk add --update --no-cache py3-numpy py3-pandas@testing
 #RUN venv/bin/pip install -r requirements.txt
 #RUN venv/bin/pip install gunicorn
 
-RUN pip install cython
-RUN pip install -r requirements.txt
-RUN pip install gunicorn
+RUN pip3 install -r requirements.txt
+RUN pip3 install gunicorn
 
 COPY app app
 #COPY migrations migrations
