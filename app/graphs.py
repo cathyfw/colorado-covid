@@ -3,9 +3,11 @@ from typing import Union
 import pandas as pd
 import plotly.graph_objects as go
 from pandas import DataFrame, Series
-
+from app import datasource
 
 def today_data(today_file):
+    # data_source = datasource.DataSource.get_instance()
+    # today_df = data_source.get_dataframe()
     today_df: Union[Series, DataFrame] = pd.read_csv(today_file).dropna(axis=0, how="any")
     today_df["value"] = today_df["value"].map(lambda x: int(x))
 
