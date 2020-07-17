@@ -20,34 +20,9 @@ def custom404(error):
 @app.route('/index')
 def index():
     ids = ["graph-0", "graph-1"]
-    graph_objects= [
-        dict(
-            data=[
-                dict(
-                    x=[1, 3, 5],
-                    y=[10, 50, 30],
-                    type='bar'
-                ),
-            ],
-            layout=dict(
-                title='second graph'
-            )
-        ),
-        dict(
-            data=[
-                dict(
-                    x=[1, 3, 5],
-                    y=[10, 50, 30],
-                    type='bar'
-                ),
-            ],
-            layout=dict(
-                title='second graph'
-            )
-        ),
-    ]
 
-    graphJSON = json.dumps(graph_objects, cls=plotly.utils.PlotlyJSONEncoder)
+
+    graphJSON = json.dumps([graphs.make_figure()], cls=plotly.utils.PlotlyJSONEncoder)
     return render_template("index.html", title="Ares is a good cat", ids=ids, graphJSON=graphJSON)
 
 

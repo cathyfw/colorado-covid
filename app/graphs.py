@@ -1,5 +1,6 @@
 from typing import Union
 
+import os
 import pandas as pd
 import plotly.graph_objects as go
 from pandas import DataFrame, Series
@@ -13,7 +14,7 @@ def today_data(today_file):
 
 
 def make_figure():
-    covid_df = today_data("/Users/catherinewalsh/Downloads/covid19_case_summary_2020-04-15.csv")
+    covid_df = today_data(os.environ["DATAFILE"])
 
     # State cumulative and new CASES by day -- ONSET DATE
     cumulative_cases_by_day = covid_df.loc[covid_df["description"] == "Cumulative Number of Cases by Onset Date"]  # x
@@ -58,4 +59,4 @@ def make_figure():
                       xaxis_title='Cumulative Cases',
                       yaxis_title='New Cases by Day')
 
-    return fig
+    return fig.to_dict()
