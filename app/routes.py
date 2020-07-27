@@ -23,7 +23,7 @@ def index():
 
 
     graphJSON = json.dumps([graphs.make_figure()], cls=plotly.utils.PlotlyJSONEncoder)
-    return render_template("index.html", title="Ares is a good cat", ids=ids, graphJSON=graphJSON)
+    return render_template("index.html", title="colorado covid data", ids=ids, graphJSON=graphJSON)
 
 
 @app.route('/colorado-log-graph')
